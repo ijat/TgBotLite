@@ -20,3 +20,4 @@ jobs:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: TgBotLite/TgBotLite.csproj
         NUGET_KEY: ${{ secrets.NUGET_API_TOKEN }}
+        TAG_COMMIT: false
