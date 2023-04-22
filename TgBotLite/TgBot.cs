@@ -19,11 +19,23 @@ public class TgBot
 
     public event EventHandler<JsonElement>? OnUpdateReceived;
 
-    public TgBot(BotToken botToken)
+    /// <summary>
+    /// Initialize TgBot with bot token
+    /// </summary>
+    /// <param name="botToken"></param>
+    /// <exception cref="ArgumentNullException"></exception>
+    public TgBot(BotToken? botToken)
     {
+        if (botToken is null)
+            throw new ArgumentNullException(nameof(botToken));
+
         _botToken = botToken;
     }
 
+    /// <summary>
+    /// Start long polling process at the background
+    /// </summary>
+    /// <param name="cancellationToken"></param>
     public void StartLongPolling(CancellationToken? cancellationToken = null)
     {
         Task.Run(() => LongPolling(cancellationToken ?? new()));
