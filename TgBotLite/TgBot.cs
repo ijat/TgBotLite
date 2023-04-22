@@ -37,9 +37,24 @@ public class TgBot
     /// </summary>
     /// <param name="cancellationToken"></param>
     public void StartLongPolling(CancellationToken? cancellationToken = null)
-    {
-        Task.Run(() => LongPolling(cancellationToken ?? new()));
-    }
+        => Task.Run(() => LongPolling(cancellationToken ?? new()));
+
+    /// <summary>
+    /// Send get method to Tg
+    /// </summary>
+    /// <param name="method"></param>
+    /// <returns></returns>
+    public async Task<JsonElement> SendAsync(string method)
+        => await TgHttp.GetAsync(_botToken, method);
+
+    /// <summary>
+    /// Send post method to Tg
+    /// </summary>
+    /// <param name="method"></param>
+    /// <param name="body"></param>
+    /// <returns></returns>
+    public async Task<JsonElement> SendAsync(string method, object body)
+        => await TgHttp.PostAsync(_botToken, method, body);
 
     private void LongPollingNewUpdate(JsonElement e)
         => OnUpdateReceived?.Invoke(this, e);
@@ -52,7 +67,7 @@ public class TgBot
             if (cancellationToken.IsCancellationRequested)
                 break;
 
-            var response = await TgHttp.Post(_botToken, "getUpdates", new
+            var response = await TgHttp.PostAsync(_botToken, "getUpdates", new
             {
                 offset = longOffset,
                 limit = LongPollingLimit,
