@@ -3,17 +3,16 @@ A super simple dotnet api wrapper for Telegram Bot API.
 I try to make this library as simple as possible (KISS), without any hard linked classes or weird way to handle things, which gets broken when Telegram Bot API update something.
 This library need you to open https://core.telegram.org/bots/api all the time. Good way to learn the API isn't it? 😏
 
-# Usage
+# Usage & Example
 
-Long polling example
+## Long polling example
 ```
   var bot = new TgBot("bot token");
   
-  # Start long polling
+  // Start long polling
   bot.OnUpdateReceived += Bot_OnUpdateReceived;
   bot.StartLongPolling();
-  # You have to do something here to wait, while loop or anything because startlongpolling is not blocking
-  
+  // You have to do something here to wait, while loop or anything because startlongpolling is not blocking
   // ...
   
   private void Bot_OnUpdateReceived(object? sender, System.Text.Json.JsonElement e)
@@ -25,7 +24,7 @@ Long polling example
   }
 ```
 
-Send bot request
+## Send bot request
 ```
   // see which method you want in https://core.telegram.org/bots/api
   // example you want to sendMessage
@@ -36,3 +35,6 @@ Send bot request
   
   // Do anything to response object, you may want to check TgResponseHelper
 ```
+
+## Webhook
+For webhook, all you need use is "Send bot request" (see above).

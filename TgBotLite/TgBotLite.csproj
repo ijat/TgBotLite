@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
-    <Version>0.1.4</Version>
+    <Version>0.1.5</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Ijat</Authors>
     <RepositoryUrl>https://github.com/ijat/TgBotLite</RepositoryUrl>
