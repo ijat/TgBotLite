@@ -1,3 +1,5 @@
+![B&D](https://github.com/ijat/TgBotLite/actions/workflows/dotnet-deploy.yml/badge.svg)
+
 # TgBotLite
 A super simple dotnet api wrapper for Telegram Bot API. 
 I try to make this library as simple as possible (KISS), without any hard linked classes or weird way to handle things, which gets broken when Telegram Bot API update something.
