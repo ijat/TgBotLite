@@ -5,8 +5,11 @@ A super simple dotnet api wrapper for Telegram Bot API.
 I try to make this library as simple as possible (KISS), without any hard linked classes or weird way to handle things, which gets broken when Telegram Bot API update something.
 This library need you to open https://core.telegram.org/bots/api all the time. Good way to learn the API isn't it? 😏
 
-# Usage & Example
+# Example
+## Echo bot
+Clone this reposistory, open project `Examples/EchoBotLongPolling`, replace the bot token and run.
 
+# Usage
 ## Long polling example
 ```
   var bot = new TgBot("bot token");
