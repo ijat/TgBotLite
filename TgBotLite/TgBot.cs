@@ -12,7 +12,7 @@ namespace TgBotLite;
 
 public class TgBot
 {
-    private const long LongPollingTimeout = 300;
+    private const int LongPollingTimeout = 300;
     private const int LongPollingLimit = 100;
 
     private readonly BotToken _botToken;

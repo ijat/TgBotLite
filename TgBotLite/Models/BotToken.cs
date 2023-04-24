@@ -14,4 +14,3 @@ public class BotToken
     public static implicit operator BotToken(string token) => new(token);
     public static implicit operator string(BotToken token) => token.Value;
 }
-
