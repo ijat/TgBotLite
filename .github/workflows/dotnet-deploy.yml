@@ -27,4 +27,4 @@ jobs:
     - name: Pack
       run: dotnet pack --no-build -c RELEASE -o nuget
     - name: Push
-      run: dotnet nuget push nuget/* --api-key ${{ secrets.NUGET_API_TOKEN }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push nuget/* --api-key ${{ secrets.NUGET_API_TOKEN }} --skip-duplicate --source https://api.nuget.org/v3/index.json
