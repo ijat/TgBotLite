@@ -14,7 +14,7 @@ public class ExtensionsTests
         ""chat"": {
           ""id"": 1234,
           ""type"": ""private"",
-          ""dec"": 1.23,
+          ""dec"": 1.23
         },
         ""isBoolean"": true
       }
