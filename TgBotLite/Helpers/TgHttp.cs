@@ -22,7 +22,7 @@ public static class TgHttp
 
     public static async Task<JsonElement> GetAsync(BotToken token, string method)
     {
-        var response = await _httpClient.GetAsync($"{Constants.TelegramBotApi.Bot(token)}/{method}");
+        var response = await _httpClient.GetAsync(Constants.TelegramBotApi.Bot(token, method));
         var jsonString = await response.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<JsonElement>(jsonString);
     }
@@ -30,7 +30,8 @@ public static class TgHttp
     public static async Task<JsonElement> PostAsync(BotToken token, string method, object body)
     {
         var jsonBody = JsonSerializer.Serialize(body, _jsonOptions);
-        var response = await _httpClient.PostAsync($"{Constants.TelegramBotApi.Bot(token)}/{method}", new StringContent(jsonBody, Encoding.UTF8, "application/json"));
+        var response = await _httpClient.PostAsync(Constants.TelegramBotApi.Bot(token, method),
+            new StringContent(jsonBody, Encoding.UTF8, "application/json"));
         var jsonString = await response.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<JsonElement>(jsonString);
     }
